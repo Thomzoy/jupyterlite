@@ -1,0 +1,24 @@
+image: mambaorg/micromamba:ubuntu22.04
+
+stages:
+  - pages
+
+pages:
+  stage: pages
+  variables:
+    CI_DEBUG_TRACE: "true"
+  before_script:
+    - micromamba env create -n build -f build-environment.yml
+  script:
+    - eval "$(micromamba shell hook --shell bash)"
+    - micromamba activate build
+    - pip install .
+    # - mkdocs build --site-dir public
+    - micromamba env create -n test -f environment.yml
+    - $CONDA_PREFIX/bin/jupyter lite init --debug --contents contents --output-dir public --XeusAddon.environment_file=environment.yml
+    - $CONDA_PREFIX/bin/jupyter lite build --debug --contents contents --output-dir public --XeusAddon.environment_file=environment.yml
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

@@ -1,0 +1,37 @@
+.md-typeset .grid {
+    grid-template-columns: 50% 50%;
+}
+
+.md-typeset .grid .truc {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    grid-template-columns: auto;
+    /* Creates three equal-width columns */
+    text-align: center;
+}
+
+.md-typeset .grid .truc>.card {
+    border: 0rem
+}
+
+main {
+    position: relative; /* This makes <main> the reference point for the spinner */
+    min-height: 400px;  /* Make sure <main> has enough height to allow centering */
+  }
+  
+  #spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Optional: Ensure it appears above other content */
+  }
+  
+  #spinner img {
+    width: 5em; /* Set the size of your spinner */
+  }
+
+  .py-error {
+    display: none;
+}

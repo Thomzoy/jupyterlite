@@ -1,0 +1,20 @@
+[project]
+name = "OMOPlot"
+description = "Various plots from OMOP database"
+requires-python = ">=3.7.1,<4.0"
+dynamic = ['version']
+dependencies = [
+    "mike>=1.1.2,<2.0",
+    "mkdocs>=1.4,<2.0",
+    "mkdocs-autorefs>=0.4.1,<1.0.0",
+    "mkdocs-bibtex>=2.0.3,<3.0",
+    "mkdocs-material>=8.2,<10.0",
+    "mkdocs-static-i18n>=0.53,<1.0.0",
+    "mkdocstrings>=0.18.1,<1.0.0",
+    "mkdocstrings-python>=0.6,<1.0.0",
+    "mypy>=0.950,<1.0.0",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
